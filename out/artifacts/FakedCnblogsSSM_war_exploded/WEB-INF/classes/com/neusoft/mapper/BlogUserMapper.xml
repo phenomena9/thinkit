@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace命名空间，作用就是对sql进行分类化管理-->
+<mapper namespace="com.neusoft.mapper.BlogUserMapper">
+
+    <insert id="regUser" parameterType="BlogUser">
+        insert into blog_user(username,password,email) values(#{username},#{password},#{email})
+    </insert>
+
+    <select id="loginUser" parameterType="BlogUser" resultType="BlogUser">
+        select * from blog_user where username = #{username} and password = #{password}
+    </select>
+
+    <select id="getAllUser" resultType="BlogUser">
+        select * from blog_user
+    </select>
+</mapper>
